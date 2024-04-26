@@ -1,8 +1,44 @@
-
+import Swal from 'sweetalert2'
 
 const AddSpots = () => {
     const handleAddSpots = e => {
         e.preventDefault();
+        const form = e.target;
+        const names = form.names.value;
+        const photo = form.photo.value;
+        const country = form.country.value;
+        const location = form.location.value;
+        const seasonality = form.seasonality.value;
+        const cost = form.cost.value;
+        const time = form.time.value;
+        const visitors = form.visitors.value;
+        const name = form.name.value;
+        const email = form.email.value;
+        const description = form.description.value;
+
+        const newSpot = { names, photo, country, location, seasonality, cost, time, visitors, name, email, description };
+        console.log(newSpot);
+
+        // send data to server
+        fetch('http://localhost:5000/spots', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newSpot)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Tourist Spot Added Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    })
+                }
+            })
     }
     return (
         <div className="max-w-6xl mx-auto">
