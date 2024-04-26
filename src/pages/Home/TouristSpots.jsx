@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const TouristSpots = ({ spot }) => {
 
-    const { names, photo, country, location, seasonality, cost, time, visitors, name, email, description } = spot;
+    const { _id, names, photo, country, location, seasonality, cost, time, visitors, name, email, description } = spot;
 
     return (
         <div className="card w-full bg-base-100 shadow-xl">
@@ -27,14 +27,14 @@ const TouristSpots = ({ spot }) => {
                 {description.length > 80 ?
                     <p>{description.slice(0, 80)} <Link
                         className="text-blue-600 font-semibold"
-                    // to={`/estate/${id}`}
+                        to={`/spots/${_id}`}
                     >See More...</Link></p>
                     :
                     <p>{description}</p>
                 }
                 <div className="card-actions justify-between">
                     <div className="font-semibold">{cost}/Person</div>
-                    <Link><div className="badge  text-cyan-500 badge-outline">View Details</div></Link>
+                    <Link to={`/spots/${_id}`}><div className="badge  text-cyan-500 badge-outline">View Details</div></Link>
                 </div>
             </div>
         </div>

@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "../layout/Root";
 import Home from "../pages/Home/Home";
 import AddSpots from "../pages/AddSpots/AddSpots";
+import SpotsDetails from "../pages/SpotsDetails/SpotsDetails";
 
 const router = createBrowserRouter([
     {
@@ -17,6 +18,11 @@ const router = createBrowserRouter([
             {
                 path: '/addSpots',
                 element: <AddSpots></AddSpots>
+            },
+            {
+                path: '/spots/:id',
+                element: <SpotsDetails></SpotsDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/spots/${params.id}`)
             },
         ]
     }
