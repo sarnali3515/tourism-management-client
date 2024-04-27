@@ -12,7 +12,6 @@ const AllTouristSpots = () => {
                     <div tabIndex={0} role="button" className="btn m-1 bg-cyan-500 text-white"><IoMdArrowDropdown></IoMdArrowDropdown>Sort By</div>
                     <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                         <li className="text-cyan-700 font-semibold"><a>Average Cost</a></li>
-
                     </ul>
                 </div>
             </div>

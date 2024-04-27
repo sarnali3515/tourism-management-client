@@ -138,7 +138,7 @@ const AddSpots = () => {
                         </div>
                     </div>
 
-                    <input className="btn btn-block bg-[#D2B48C]" type="submit" value="Add Spot" />
+                    <input className="btn btn-block bg-cyan-600 text-white" type="submit" value="Add Spot" />
                 </form>
             </div>
         </div>
