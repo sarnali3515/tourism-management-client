@@ -6,11 +6,46 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { updateProfile } from "firebase/auth";
-const Register = () => {
-    const [showPassword, setShowPassword] = useState(false);
+import { updateProfile, GoogleAuthProvider } from "firebase/auth";
 
-    const { createUser } = useContext(AuthContext);
+
+
+const Register = () => {
+
+    const [showPassword, setShowPassword] = useState(false);
+    const { createUser, googlePopup } = useContext(AuthContext);
+
+    const googleProvider = new GoogleAuthProvider();
+
+    const handleGoogleSignIn = () => {
+        googlePopup(googleProvider)
+            .then(result => {
+                console.log(result);
+                toast.success('Registration Successful!');
+                const name = result.user.displayName;
+                const email = result.user.email;
+                const photoURL = result.user.photoURL;
+                console.log(name, email, photoURL)
+
+                const user = { name, email, photo: photoURL };
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(user)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                    })
+                // navigate(location?.state ? location.state : '/');
+            })
+            .catch(error => {
+                console.error(error);
+                toast.error('Registration Failed!')
+            })
+    }
 
     const handleRegister = e => {
         e.preventDefault();
@@ -138,7 +173,7 @@ const Register = () => {
                             </div>
                             <div className="flex items-center justify-center gap-5 mb-5 ">
                                 {/* google */}
-                                <Link><img className="w-8" src="https://i.ibb.co/fNhG8bD/Logo-google-icon-PNG.png" alt="" /></Link>
+                                <Link><img onClick={handleGoogleSignIn} className="w-8" src="https://i.ibb.co/fNhG8bD/Logo-google-icon-PNG.png" alt="" /></Link>
                                 {/* github */}
                                 <Link><img className="w-8" src="https://i.ibb.co/0QtqQ02/kisspng-github-computer-icons-icon-design-github-5ab8a31e5b5395-6758034915220498223741.png" alt="" /></Link>
                             </div>
