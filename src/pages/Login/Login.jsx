@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { AuthContext } from "../../provider/AuthProvider";
 import { toast } from "react-toastify";
@@ -8,6 +8,8 @@ import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const { signIn, googlePopup, githubPopup } = useContext(AuthContext);
 
@@ -22,7 +24,7 @@ const Login = () => {
                 console.log(result);
                 toast.success('Login Successful')
 
-                // navigate(location?.state ? location.state : '/');
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
                 console.error(error);
@@ -35,7 +37,7 @@ const Login = () => {
             .then(result => {
                 console.log(result);
                 toast.success('Login Successful')
-                // navigate(location?.state ? location.state : '/');
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
                 console.error(error);
@@ -56,7 +58,7 @@ const Login = () => {
                 console.log(result.user);
                 toast.success('Login Successful')
 
-                // navigate(location?.state ? location.state : '/');
+                navigate(location?.state ? location.state : '/');
 
             })
             .catch(error => {
@@ -112,7 +114,7 @@ const Login = () => {
 
                             <div className="flex items-center justify-center px-8 pb-3">
                                 <div className="flex-grow border-t border-gray-400"></div>
-                                <div className="mx-4 text-gray-500">Or Register with</div>
+                                <div className="mx-4 text-gray-500">Or Login with</div>
                                 <div className="flex-grow border-t border-gray-400"></div>
                             </div>
                             <div className="flex items-center justify-center gap-5 mb-5 ">
