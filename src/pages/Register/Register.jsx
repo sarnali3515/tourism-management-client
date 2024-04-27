@@ -151,7 +151,7 @@ const Register = () => {
                 <div className="hero-content lg:w-1/2 text-center">
                     <div className="w-full">
                         <div className="w-full rounded-lg shadow-2xl bg-cyan-50">
-                            <h1 className="text-center font-bold text-4xl pt-2">Register to Travel Trails</h1>
+                            <h1 className="text-center font-bold text-4xl pt-2">Welcome to Travel Trails <br />Register to Explore</h1>
                             <form onSubmit={handleRegister} className="card-body">
                                 <div className="form-control">
                                     <label className="label">
