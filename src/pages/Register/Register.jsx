@@ -5,6 +5,7 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import { updateProfile } from "firebase/auth";
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -18,7 +19,7 @@ const Register = () => {
         const email = form.email.value;
         const photoURL = form.photo.value;
         const password = form.password.value;
-        console.log(name, email, photo, password);
+        console.log(name, email, photoURL, password);
 
         const uppercaseRegex = /[A-Z]/;
         const lowercaseRegex = /[a-z]/;
@@ -54,7 +55,21 @@ const Register = () => {
                     .catch()
                 toast.success('Registration Successful!');
                 // navigate(location?.state ? location.state : '/');
+
                 // new user created
+                const user = { name, email, photoURL };
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(user)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                    })
+
             })
             .catch(error => {
                 console.error(error)
