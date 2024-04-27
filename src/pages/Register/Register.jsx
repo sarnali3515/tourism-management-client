@@ -1,10 +1,65 @@
 
+import { useContext } from "react";
 import { useState } from "react";
-import { FaGoogle, FaGithub } from "react-icons/fa";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
+import { toast } from "react-toastify";
+import { updateProfile } from "firebase/auth";
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
+
+    const { createUser } = useContext(AuthContext);
+
+    const handleRegister = e => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const photoURL = form.photo.value;
+        const password = form.password.value;
+        console.log(name, email, photo, password);
+
+        const uppercaseRegex = /[A-Z]/;
+        const lowercaseRegex = /[a-z]/;
+        const lengthRequirement = password.length >= 6;
+
+        if (!uppercaseRegex.test(password)) {
+            toast.error('Password must contain at least one uppercase letter.');
+            return;
+        }
+
+        if (!lowercaseRegex.test(password)) {
+            toast.error('Password must contain at least one lowercase letter.');
+            return;
+        }
+
+        if (!lengthRequirement) {
+            toast.error('Password must be at least 6 characters long.');
+            return;
+        }
+
+        createUser(email, password)
+            .then(result => {
+                console.log(result.user);
+
+                //update
+                updateProfile(result.user, {
+                    displayName: name,
+                    photoURL: photoURL
+                })
+                    .then(() => {
+                        console.log('profile updated')
+                    })
+                    .catch()
+                toast.success('Registration Successful!');
+                // navigate(location?.state ? location.state : '/');
+                // new user created
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
 
     return (
         <div className="lg:p-5">
@@ -12,9 +67,9 @@ const Register = () => {
                 <div className="hero-overlay rounded-lg bg-opacity-60"></div>
                 <div className="hero-content lg:w-1/2 text-center">
                     <div className="w-full">
-                        <div className="w-full rounded-lg shadow-2xl bg-indigo-100">
-                            <h1 className="text-center font-bold text-4xl pt-2">Register</h1>
-                            <form className="card-body">
+                        <div className="w-full rounded-lg shadow-2xl bg-cyan-50">
+                            <h1 className="text-center font-bold text-4xl pt-2">Register to Travel Trails</h1>
+                            <form onSubmit={handleRegister} className="card-body">
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Name</span>
@@ -57,7 +112,7 @@ const Register = () => {
                                     </label>
                                 </div>
                                 <div className="form-control mt-6">
-                                    <button className="btn bg-indigo-700 text-white">Register</button>
+                                    <button className="btn bg-cyan-600 text-white">Register</button>
                                 </div>
                             </form>
 
@@ -67,14 +122,10 @@ const Register = () => {
                                 <div className="flex-grow border-t border-gray-400"></div>
                             </div>
                             <div className="flex items-center justify-center gap-5 mb-5 ">
-                                <button className="btn  bg-red-600 text-white">
-                                    <FaGoogle></FaGoogle>
-                                    Google
-                                </button>
-                                <button className="btn  bg-black text-white">
-                                    <FaGithub></FaGithub>
-                                    GitHub
-                                </button>
+                                {/* google */}
+                                <Link><img className="w-8" src="https://i.ibb.co/fNhG8bD/Logo-google-icon-PNG.png" alt="" /></Link>
+                                {/* github */}
+                                <Link><img className="w-8" src="https://i.ibb.co/0QtqQ02/kisspng-github-computer-icons-icon-design-github-5ab8a31e5b5395-6758034915220498223741.png" alt="" /></Link>
                             </div>
                             <p className="mb-4 text-center">Already have an account? <Link to="/login" className="text-blue-600 font-semibold">Login.</Link></p>
                         </div>
