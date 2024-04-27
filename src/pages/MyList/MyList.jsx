@@ -1,22 +1,40 @@
-import { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
-import { MdEdit } from "react-icons/md";
+import { MdEdit, MdOpenInFull } from "react-icons/md";
+
 
 
 const MyList = () => {
 
 
     const { user } = useContext(AuthContext)
-    const spots = useLoaderData();
-    console.log(spots);
+    const loadedSpots = useLoaderData();
+
+    const [spots, setSpots] = useState(loadedSpots);
+
+    const handleDelete = id => {
+        //make sure-------------
+        fetch(`http://localhost:5000/spots/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    console.log('deleted successfully');
+                    // remove from UI
+                    const remainingSpots = spots.filter(spot => spot._id !== id);
+                    setSpots(remainingSpots);
+                }
+            })
+    }
 
 
     return (
         <div >
-
+            <h2 className="text-3xl text-center mt-8 font-bold">My Tourist Spots List </h2>
             <div className="overflow-x-auto px-5">
-                <table className="table bg-cyan-50 mt-8">
+                <table className="table bg-cyan-50 mt-5">
                     {/* head */}
                     <thead>
                         <tr className="font-bold text-black text-lg">
@@ -26,6 +44,7 @@ const MyList = () => {
                             <th >Country </th>
                             <th >Average Cost </th>
                             <th ></th>
+                            <th></th>
                             <th></th>
                         </tr>
                     </thead>
@@ -41,10 +60,14 @@ const MyList = () => {
                                     <td>{spot.country}</td>
                                     <td>{spot.cost}</td>
                                     <td>
+                                        <Link to={`/spots/${spot._id}`}> <button className="btn btn-outline btn-primary"><MdOpenInFull></MdOpenInFull>View</button></Link>
+                                    </td>
+
+                                    <td>
                                         <button className="btn btn-info"><MdEdit></MdEdit>Update</button>
                                     </td>
                                     <td>
-                                        <button className="btn btn-error">X  Delete</button>
+                                        <button onClick={() => handleDelete(spot._id)} className="btn btn-error">X  Delete</button>
                                     </td>
                                 </tr>)
                         }
