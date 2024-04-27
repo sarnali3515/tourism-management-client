@@ -3,6 +3,7 @@ import Root from "../layout/Root";
 import Home from "../pages/Home/Home";
 import AddSpots from "../pages/AddSpots/AddSpots";
 import SpotsDetails from "../pages/SpotsDetails/SpotsDetails";
+import AllTouristSpots from "../pages/AllTouristSpots/AllTouristSpots";
 
 const router = createBrowserRouter([
     {
@@ -20,10 +21,16 @@ const router = createBrowserRouter([
                 element: <AddSpots></AddSpots>
             },
             {
+                path: '/allSpots',
+                element: <AllTouristSpots></AllTouristSpots>,
+                loader: () => fetch('http://localhost:5000/spots')
+            },
+            {
                 path: '/spots/:id',
                 element: <SpotsDetails></SpotsDetails>,
                 loader: ({ params }) => fetch(`http://localhost:5000/spots/${params.id}`)
             },
+
         ]
     }
 ]);
