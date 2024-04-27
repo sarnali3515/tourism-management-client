@@ -5,6 +5,7 @@ import { IoMdArrowDropdown } from "react-icons/io";
 
 const AllTouristSpots = () => {
     const loadedSpots = useLoaderData();
+
     return (
         <div>
             <div className="text-center mt-8">

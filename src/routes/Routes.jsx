@@ -8,11 +8,13 @@ import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
 import MyList from "../pages/MyList/MyList";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Root></Root>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -39,14 +41,15 @@ const router = createBrowserRouter([
             },
             {
                 path: '/spots/:id',
-                element: <SpotsDetails></SpotsDetails>,
+                element: <PrivateRoute><SpotsDetails></SpotsDetails></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/spots/${params.id}`)
             },
             {
-                path: '/myList',
-                element: <PrivateRoute><MyList></MyList></PrivateRoute>
-
+                path: '/myList/:email',
+                element: <PrivateRoute><MyList></MyList></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/spots/email/${params.email}`)
             },
+
 
         ]
     }

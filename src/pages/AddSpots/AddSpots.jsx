@@ -42,8 +42,8 @@ const AddSpots = () => {
     }
     return (
         <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl">Add Spots</h2>
-            <div>
+            <h2 className="text-2xl text-center font-bold my-4">Add Tourist spots You Visited</h2>
+            <div className='bg-cyan-100 p-4 rounded-lg'>
                 <form onSubmit={handleAddSpots}>
                     {/* form row spot name photo */}
                     <div className="md:flex mb-6 ">
@@ -92,9 +92,7 @@ const AddSpots = () => {
                                 <span className="label-text">Average Cost</span>
                             </label>
                             <input type="text" name="cost" placeholder="Average Cost" className="input input-bordered w-full" required />
-
                         </div>
-
                     </div>
                     {/* form photo url row */}
                     <div className="flex mb-6">

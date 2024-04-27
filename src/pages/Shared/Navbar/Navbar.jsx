@@ -7,6 +7,12 @@ const Navbar = () => {
 
     const { user, logOut, loading } = useContext(AuthContext);
 
+    if (loading) {
+        return <div className="text-center my-4 md:my-6">
+            <span className="loading loading-lg loading-spinner text-success"></span>
+        </div>
+    }
+
     const handleSignOut = () => {
         logOut()
             .then()
@@ -18,7 +24,7 @@ const Navbar = () => {
             <li className="text-blue-900 font-medium"><NavLink to="/">Home</NavLink></li>
             <li className="text-blue-900 font-medium"><NavLink to="/allSpots">All Tourist Spots</NavLink></li>
             <li className="text-blue-900 font-medium"><NavLink to="/addSpots">Add Tourist Spots</NavLink></li>
-            <li className="text-blue-900 font-medium"><NavLink to="/myList">My List</NavLink></li>
+            <li className="text-blue-900 font-medium"><NavLink to={`/myList/${user?.email}`}>My List</NavLink></li>
         </>
     return (
         <div className="navbar md:px-5 bg-cyan-300">
