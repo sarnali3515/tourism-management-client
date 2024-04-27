@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { MdEdit, MdOpenInFull } from "react-icons/md";
+import Swal from "sweetalert2";
 
 
 
@@ -14,19 +15,37 @@ const MyList = () => {
     const [spots, setSpots] = useState(loadedSpots);
 
     const handleDelete = id => {
-        //make sure-------------
-        fetch(`http://localhost:5000/spots/${id}`, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.deletedCount > 0) {
-                    console.log('deleted successfully');
-                    // remove from UI
-                    const remainingSpots = spots.filter(spot => spot._id !== id);
-                    setSpots(remainingSpots);
-                }
-            })
+        console.log(id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+
+                fetch(`http://localhost:5000/spots/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Tourist Spots has been deleted.",
+                                icon: "success"
+                            });
+                            const remainingSpots = spots.filter(spot => spot._id !== id);
+                            setSpots(remainingSpots);
+                        }
+                    })
+            }
+        });
     }
 
 
@@ -64,7 +83,8 @@ const MyList = () => {
                                     </td>
 
                                     <td>
-                                        <button className="btn btn-info"><MdEdit></MdEdit>Update</button>
+                                        <Link to={`/update/${spot._id}`}> <button className="btn btn-info"><MdEdit></MdEdit>Update</button></Link>
+
                                     </td>
                                     <td>
                                         <button onClick={() => handleDelete(spot._id)} className="btn btn-error">X  Delete</button>

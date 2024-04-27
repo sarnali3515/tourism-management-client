@@ -54,7 +54,7 @@ const AddSpots = () => {
                             <input type="text" placeholder="Tourist Spot Name" name="names" className="input input-bordered w-full" required />
                         </div>
 
-                        <div className="form-control md:w-1/2 ml-4">
+                        <div className="form-control md:w-1/2 md:ml-4">
                             <label className="label">
                                 <span className="label-text">Photo URL</span>
                             </label>
@@ -70,7 +70,7 @@ const AddSpots = () => {
                             </label>
                             <input type="text" name="country" placeholder="Country Name" className="input input-bordered w-full" required />
                         </div>
-                        <div className="form-control md:w-1/2 ml-4">
+                        <div className="form-control md:w-1/2 md:ml-4">
                             <label className="label">
                                 <span className="label-text">Location</span>
                             </label>
@@ -87,7 +87,7 @@ const AddSpots = () => {
                             </label>
                             <input type="text" name="seasonality" placeholder="Seasonality" className="input input-bordered w-full" required />
                         </div>
-                        <div className="form-control md:w-1/2 ml-4">
+                        <div className="form-control md:w-1/2 md:ml-4">
                             <label className="label">
                                 <span className="label-text">Average Cost</span>
                             </label>
@@ -102,7 +102,7 @@ const AddSpots = () => {
                             </label>
                             <input type="text" name="time" placeholder="Travel Time" className="input input-bordered w-full" required />
                         </div>
-                        <div className="form-control md:w-1/2 ml-4">
+                        <div className="form-control md:w-1/2 md:ml-4">
                             <label className="label">
                                 <span className="label-text">Total Visitors Per Year</span>
                             </label>
@@ -118,7 +118,7 @@ const AddSpots = () => {
                             </label>
                             <input type="text" name="name" placeholder="User name" className="input input-bordered w-full" required />
                         </div>
-                        <div className="form-control md:w-1/2 ml-4">
+                        <div className="form-control md:w-1/2 md:ml-4">
                             <label className="label">
                                 <span className="label-text">User Email</span>
                             </label>

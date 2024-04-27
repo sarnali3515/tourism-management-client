@@ -9,6 +9,7 @@ import Login from "../pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
 import MyList from "../pages/MyList/MyList";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import UpdateSpots from "../pages/UpdateSpots/UpdateSpots";
 
 const router = createBrowserRouter([
     {
@@ -48,6 +49,11 @@ const router = createBrowserRouter([
                 path: '/myList/:email',
                 element: <PrivateRoute><MyList></MyList></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/spots/email/${params.email}`)
+            },
+            {
+                path: '/update/:id',
+                element: <PrivateRoute><UpdateSpots></UpdateSpots></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/spots/${params.id}`)
             },
 
 
