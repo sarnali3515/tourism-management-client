@@ -1,6 +1,11 @@
+import { useContext } from 'react';
 import Swal from 'sweetalert2'
+import { AuthContext } from '../../provider/AuthProvider';
 
 const AddSpots = () => {
+
+    const { user } = useContext(AuthContext)
+
     const handleAddSpots = e => {
         e.preventDefault();
         const form = e.target;
@@ -38,6 +43,7 @@ const AddSpots = () => {
                         confirmButtonText: 'OK'
                     })
                 }
+                form.reset()
             })
     }
     return (
@@ -65,10 +71,19 @@ const AddSpots = () => {
                     {/* form row country name, location */}
                     <div className="md:flex mb-6 ">
                         <div className="form-control md:w-1/2">
-                            <label className="label">
+                            <label className='label'>
                                 <span className="label-text">Country Name</span>
                             </label>
-                            <input type="text" name="country" placeholder="Country Name" className="input input-bordered w-full" required />
+                            <select name="country" className="select mb-0 select-bordered  w-full ">
+                                <option disabled selected>Country</option>
+                                <option>Bangladesh</option>
+                                <option>Thailand</option>
+                                <option>Indonesia</option>
+                                <option>Malaysia</option>
+                                <option>VietNam</option>
+                                <option>Cambodia</option>
+                            </select>
+
                         </div>
                         <div className="form-control md:w-1/2 md:ml-4">
                             <label className="label">
@@ -116,13 +131,13 @@ const AddSpots = () => {
                             <label className="label">
                                 <span className="label-text">User name</span>
                             </label>
-                            <input type="text" name="name" placeholder="User name" className="input input-bordered w-full" required />
+                            <input type="text" name="name" readOnly defaultValue={user.displayName} className="input input-bordered w-full" required />
                         </div>
                         <div className="form-control md:w-1/2 md:ml-4">
                             <label className="label">
                                 <span className="label-text">User Email</span>
                             </label>
-                            <input type="email" name="email" placeholder="User Email" className="input input-bordered w-full" required />
+                            <input type="email" name="email" readOnly defaultValue={user.email} className="input input-bordered w-full" required />
 
                         </div>
                     </div>

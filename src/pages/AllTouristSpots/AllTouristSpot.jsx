@@ -29,7 +29,8 @@ const AllTouristSpot = ({ spot }) => {
                     </div>
 
                     <div className="card-actions justify-between">
-                        <div ><span className="font-semibold">Visitors Per Year:</span> {visitors}/Person</div>
+                        <div ><span className="font-semibold">Visitors Per Year:</span> {visitors}</div>
+                        <br />
                         <div ><span className="font-semibold">Seasonality:</span> {seasonality}</div>
 
                     </div>
