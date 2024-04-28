@@ -6,7 +6,7 @@ const AllTouristSpot = ({ spot }) => {
     const { _id, names, photo, country, location, seasonality, cost, time, visitors, name, email, description } = spot;
     return (
 
-        <div>
+        <div >
 
             <div className="card w-full bg-base-100 shadow-xl">
                 <figure><img className="lg:h-60 lg:w-full" src={photo} alt="spots" /></figure>

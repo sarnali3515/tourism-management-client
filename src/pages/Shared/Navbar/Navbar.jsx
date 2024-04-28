@@ -87,10 +87,9 @@ const Navbar = () => {
                                     <img alt={user.displayName} src={user.photoURL} />
                                 </div>
                             </div>
-                            <ul tabIndex={0} className="dropdown-content z-[1] menu shadow bg-base-100 rounded-box w-56">
-                                {/* <li><button className="btn bg-cyan-500 text-white">Logged As {user.displayName}</button></li> */}
+                            <ul tabIndex={0} className="dropdown-content space-y-2 z-[1] menu shadow bg-base-100 rounded-box w-56">
+                                <li><button className="btn bg-cyan-500 text-white">{user.displayName}</button></li>
                                 <li><button onClick={handleSignOut} className="btn bg-cyan-500 text-white"><RiLogoutCircleLine></RiLogoutCircleLine>Log Out</button></li>
-
                             </ul>
                         </div>
                     </>
