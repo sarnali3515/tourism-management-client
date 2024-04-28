@@ -2,6 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
 import { Typewriter } from 'react-simple-typewriter';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     const slides = [
@@ -43,7 +44,7 @@ const Banner = () => {
                                 </h1>
                                 <p className="mb-5">Explore the vast diversity of cultures, landscapes, and experiences the world has to offer. From bustling cities to serene natural wonders, there is something for every traveler to discover.</p>
                                 <div className='space-x-5'>
-                                    <button className="btn bg-cyan-600 text-white font-semibold">All Spots</button>
+                                    <Link to="/allSpots"><button className="btn bg-cyan-600 text-white font-semibold">All Spots</button></Link>
                                     <button className="btn bg-transparent text-white font-semibold">Explore</button>
                                 </div>
                             </div>

@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
 import { RiLogoutCircleLine } from "react-icons/ri";
+import './Navbar.css'
 
 const Navbar = () => {
     const { user, logOut, loading } = useContext(AuthContext);
