@@ -77,7 +77,7 @@ const MyList = () => {
                                     <td>{spot.names} </td>
                                     <td>{spot.location} </td>
                                     <td>{spot.country}</td>
-                                    <td>{spot.cost}</td>
+                                    <td>${spot.cost}</td>
                                     <td>
                                         <Link to={`/spots/${spot._id}`}> <button className="btn btn-outline btn-primary"><MdOpenInFull></MdOpenInFull>View</button></Link>
                                     </td>

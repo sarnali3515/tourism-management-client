@@ -8,7 +8,7 @@ const TouristSpots = ({ spot }) => {
 
     return (
         <div className="card w-full bg-base-100 shadow-xl">
-            <figure><img className="lg:h-60 lg:w-full" src={photo} alt="spots" /></figure>
+            <figure><img className="md:h-60 md:w-full" src={photo} alt="spots" /></figure>
             <div className="flex justify-between bg-cyan-500  text-white p-2">
                 <div className="flex items-center gap-2">
                     <ImLocation2></ImLocation2>
@@ -33,7 +33,7 @@ const TouristSpots = ({ spot }) => {
                     <p>{description}</p>
                 }
                 <div className="card-actions justify-between">
-                    <div className="font-semibold">{cost}/Person</div>
+                    <div className="font-semibold">${cost}/Person</div>
                     <Link to={`/spots/${_id}`}><div className="badge  text-cyan-500 badge-outline">View Details</div></Link>
                 </div>
             </div>

@@ -1,9 +1,11 @@
 import { useLoaderData } from "react-router-dom";
 import TouristSpots from "./TouristSpots";
 import Banner from "./Banner";
+import Countries from "../Countries/Countries";
 
 const Home = () => {
     const loadedSpots = useLoaderData();
+    console.log(loadedSpots)
 
     return (
         <div className="max-w-6xl mx-auto">
@@ -23,6 +25,10 @@ const Home = () => {
                 loadedSpots.length === 0 &&
                 <p>No tourist spots available.</p>
             }
+            <div className="mt-10">
+                <h1 className="text-3xl font-bold my-8 text-center">Explore All the Countries</h1>
+                <Countries></Countries>
+            </div>
         </div>
     );
 };

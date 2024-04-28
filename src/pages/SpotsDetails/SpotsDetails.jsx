@@ -13,7 +13,7 @@ const SpotsDetails = () => {
                     <div className="space-y-5">
                         <div className="flex gap-8 items-center font-bold">
                             <h2 className="text-4xl ">{names}</h2>
-                            <p className="text-xl"><span className="text-cyan-500">{cost}</span> /person</p>
+                            <p className="text-xl"><span className="text-cyan-500">${cost}</span> /person</p>
                         </div>
                         <p>{description}</p>
                         <div className="space-x-4">

@@ -25,7 +25,7 @@ const AllTouristSpot = ({ spot }) => {
                         <h2 className="card-title font-bold">
                             {names}
                         </h2>
-                        <div className="font-semibold">{cost}/Person</div>
+                        <div className="font-semibold">${cost}/Person</div>
                     </div>
 
                     <div className="card-actions justify-between">
