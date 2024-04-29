@@ -1,39 +1,13 @@
-// import Slider from "react-slick";
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const Reviews = () => {
-    // var settings = {
-    //     dots: true,
-    //     infinite: true,
 
-    //     slidesToShow: 1,
-    //     slidesToScroll: 1,
-    //     initialSlide: 0,
-    //     responsive: [
-    //         {
-    //             breakpoint: 1024,
-    //             settings: {
-    //                 slidesToShow: 2,
-    //                 slidesToScroll: 1,
-    //                 infinite: true,
-    //                 dots: true
-    //             }
-    //         },
-    //         {
-    //             breakpoint: 768,
-    //             settings: {
-    //                 slidesToShow: 1,
-    //                 slidesToScroll: 1,
-    //                 initialSlide: 2
-    //             }
-    //         }
-    //     ]
-    // };
     return (
         <div className="">
-            <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5 slider-container">
-                {/* <Slider {...settings}> */}
+            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 slider-container">
+
                 {
                     reviews.map((review, idx) => (
                         <div key={idx} >
@@ -54,7 +28,7 @@ const Reviews = () => {
                         </div>
                     ))
                 }
-                {/* </Slider> */}
+
             </div>
         </div>
     );
@@ -76,16 +50,7 @@ const reviews = [
         image: "https://i.ibb.co/KDnpsw5/lifestyle-people-emotions-casual-concept-confident-nice-smiling-asian-woman-cross-arms-chest-confide.jpg",
         review: "Breathtaking scenery! A must-visit destination for everyone.",
     },
-    // {
-    //     name: "Michael Brown",
-    //     image: "https://i.ibb.co/VmW1VGZ/curl-hair.jpg",
-    //     review: "Unforgettable trip! The beauty of this place is beyond words.",
-    // },
-    // {
-    //     name: "Emily Davis",
-    //     image: "https://i.ibb.co/mTTpq2j/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair-285396-896.jpg",
-    //     review: "Absolutely stunning! Couldn't have asked for a better vacation spot.",
-    // },
+
 ];
 
 
