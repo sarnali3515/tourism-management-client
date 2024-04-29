@@ -14,7 +14,7 @@ const Countries = () => {
     return (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {countries.map(country => (
-                <div key={country.id} className="flex card-wrapper">
+                <div key={country._id} className="flex card-wrapper">
                     <Link to={`/spotsCountry/${country.country}`}>
                         <div className="flex flex-col h-full w-full bg-base-100 border-2 border-cyan-500">
                             <figure>

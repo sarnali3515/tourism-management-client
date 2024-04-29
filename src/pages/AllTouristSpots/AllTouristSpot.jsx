@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 
 const AllTouristSpot = ({ spot }) => {
-    const { _id, names, photo, country, location, seasonality, cost, time, visitors } = spot;
+    const { _id, names, photo, location, seasonality, cost, time, visitors } = spot;
     return (
 
         <div >
@@ -14,7 +14,7 @@ const AllTouristSpot = ({ spot }) => {
                 <div className="flex justify-between bg-cyan-500  text-white p-2">
                     <div className="flex items-center gap-2">
                         <ImLocation2></ImLocation2>
-                        <p>{location}, {country}</p>
+                        <p>{location}</p>
                     </div>
                     <div className="flex items-center gap-2">
                         <SlCalender></SlCalender>

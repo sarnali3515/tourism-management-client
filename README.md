@@ -3,6 +3,9 @@ Travel Trails
 
 # Live Site Link: https://tourism-management-trails.web.app/
 
+# Category : 
+Southeast Asia
+
 # Features
 - Responsive navbar with active routes and conditional user profile display.
 - Login page with email/password authentication, google and github login options.

@@ -106,12 +106,12 @@ const AddSpots = () => {
                             <label className="label">
                                 <span className="label-text">Average Cost</span>
                             </label>
-                            <input type="text" name="cost" placeholder="Average Cost" className="input input-bordered w-full" required />
+                            <input type="number" name="cost" placeholder="Average Cost" className="input input-bordered w-full" required />
                         </div>
                     </div>
                     {/* form photo url row */}
-                    <div className="flex mb-6">
-                        <div className="form-control w-1/2">
+                    <div className="md:flex mb-6">
+                        <div className="form-control md:w-1/2">
                             <label className="label">
                                 <span className="label-text">Travel Time</span>
                             </label>
@@ -122,12 +122,11 @@ const AddSpots = () => {
                                 <span className="label-text">Total Visitors Per Year</span>
                             </label>
                             <input type="text" name="visitors" placeholder="Total Visitors Per Year" className="input input-bordered w-full" required />
-
                         </div>
                     </div>
                     {/* form photo url row */}
-                    <div className="flex mb-6">
-                        <div className="form-control w-1/2">
+                    <div className="md:flex mb-6">
+                        <div className="form-control md:w-1/2">
                             <label className="label">
                                 <span className="label-text">User name</span>
                             </label>

@@ -9,11 +9,11 @@ const Country = () => {
     console.log(spots)
 
     return (
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-4 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 max-w-6xl mx-auto">
             {
                 spots.map(spot => <div className="flex card-wrapper" key={spot._id}>
                     <div className="card w-full bg-base-100 shadow-xl">
-                        <figure><img className="lg:h-48 lg:w-full" src={spot.photo} alt="spots" /></figure>
+                        <figure><img className="lg:h-72 lg:w-full" src={spot.photo} alt="spots" /></figure>
                         <div className="flex justify-between bg-cyan-500  text-white p-2">
                             <div className="flex items-center gap-2">
                                 <ImLocation2></ImLocation2>
@@ -21,14 +21,16 @@ const Country = () => {
                             </div>
 
                         </div>
+
                         <div className="card-body flex-grow">
+
                             <div className="flex justify-between">
                                 <h2 className="card-title font-bold">
                                     {spot.names}
                                 </h2>
 
                             </div>
-
+                            <p>{spot.description}</p>
                             <div className="card-actions justify-between">
 
                                 <div ><span className="font-semibold">Seasonality:</span> {spot.seasonality}</div>
