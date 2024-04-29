@@ -36,7 +36,6 @@ const Home = () => {
                 <div className="text-center space-y-3 my-10">
                     <h1 className="text-xl md:text-3xl font-bold my-4 text-center">Explore All the Countries</h1>
                     <p className="px-2 md:px-32">Discover the beauty of different cultures, cuisines, and landscapes as you traverse the globe. Start your exploration today and create memories that will last a lifetime.</p>
-
                 </div>
                 <Countries></Countries>
             </div>

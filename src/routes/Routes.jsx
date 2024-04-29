@@ -23,7 +23,6 @@ const router = createBrowserRouter([
                 path: '/',
                 element: <Home></Home>,
                 loader: () => fetch('http://localhost:5000/spots')
-
             },
             {
                 path: '/register',
@@ -58,9 +57,9 @@ const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/spots/${params.id}`)
             },
             {
-                path: '/spots/country/:country',
+                path: '/spotsCountry/:country',
                 element: <Country></Country>,
-                loader: ({ params }) => fetch(`http://localhost:5000/spots/country/${params.country}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/spotsCountry/${params.country}`)
             },
         ]
     }

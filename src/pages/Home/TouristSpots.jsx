@@ -1,10 +1,11 @@
 import { ImLocation2 } from "react-icons/im";
 import { SlCalender } from "react-icons/sl";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 const TouristSpots = ({ spot }) => {
 
-    const { _id, names, photo, country, location, seasonality, cost, time, visitors, name, email, description } = spot;
+    const { _id, names, photo, country, location, cost, time, description } = spot;
 
     return (
         <div className="card w-full bg-base-100 shadow-xl">
@@ -40,6 +41,9 @@ const TouristSpots = ({ spot }) => {
         </div>
 
     );
+};
+TouristSpots.propTypes = {
+    spot: PropTypes.object
 };
 
 export default TouristSpots;

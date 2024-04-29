@@ -4,7 +4,7 @@ import { SlCalender } from "react-icons/sl";
 
 const SpotsDetails = () => {
     const spots = useLoaderData();
-    const { _id, names, photo, country, location, seasonality, cost, time, visitors, name, email, description } = spots;
+    const { names, photo, country, location, seasonality, cost, time, visitors, description } = spots;
 
     return (
         <div className="max-w-6xl mx-auto">
