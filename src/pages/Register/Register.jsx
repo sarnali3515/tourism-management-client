@@ -2,7 +2,7 @@
 import { useContext } from "react";
 import { useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,6 +13,9 @@ import Lottie from "react-lottie";
 
 
 const Register = () => {
+
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const [showPassword, setShowPassword] = useState(false);
     const { createUser, googlePopup, githubPopup } = useContext(AuthContext);
@@ -31,7 +34,7 @@ const Register = () => {
                 console.log(name, email, photoURL)
 
                 const user = { name, email, photo: photoURL };
-                fetch('http://localhost:5000/users', {
+                fetch('https://tourism-management-server-pearl.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -42,7 +45,7 @@ const Register = () => {
                     .then(data => {
                         console.log(data);
                     })
-                // navigate(location?.state ? location.state : '/');
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
                 console.error(error);
@@ -62,7 +65,7 @@ const Register = () => {
                 console.log(name, email, photoURL)
 
                 const user = { name, email, photo: photoURL };
-                fetch('http://localhost:5000/users', {
+                fetch('https://tourism-management-server-pearl.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -73,7 +76,7 @@ const Register = () => {
                     .then(data => {
                         console.log(data);
                     })
-                // navigate(location?.state ? location.state : '/');
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
                 console.error(error);
@@ -131,11 +134,11 @@ const Register = () => {
                     })
                     .catch()
                 toast.success('Registration Successful!');
-                // navigate(location?.state ? location.state : '/');
+                navigate(location?.state ? location.state : '/');
 
                 // new user created
                 const user = { name, email, photoURL };
-                fetch('http://localhost:5000/users', {
+                fetch('https://tourism-management-server-pearl.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

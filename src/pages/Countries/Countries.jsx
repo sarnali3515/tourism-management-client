@@ -5,7 +5,7 @@ const Countries = () => {
     const [countries, setCountries] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/countries')
+        fetch('https://tourism-management-server-pearl.vercel.app/countries')
             .then(response => response.json())
             .then(data => setCountries(data))
             .catch(error => console.error('Error fetching countries:', error));

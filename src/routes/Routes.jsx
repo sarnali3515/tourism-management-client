@@ -22,7 +22,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/spots')
+                loader: () => fetch('https://tourism-management-server-pearl.vercel.app/spots')
             },
             {
                 path: '/register',
@@ -39,27 +39,31 @@ const router = createBrowserRouter([
             {
                 path: '/allSpots',
                 element: <AllTouristSpots></AllTouristSpots>,
-                loader: () => fetch('http://localhost:5000/spots')
+                loader: () => fetch('https://tourism-management-server-pearl.vercel.app/spots')
             },
             {
                 path: '/spots/:id',
                 element: <PrivateRoute><SpotsDetails></SpotsDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/spots/${params.id}`)
+                loader: ({ params }) => fetch(`https://tourism-management-server-pearl.vercel.app
+/spots/${params.id}`)
             },
             {
                 path: '/myList/:email',
                 element: <PrivateRoute><MyList></MyList></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/spots/email/${params.email}`)
+                loader: ({ params }) => fetch(`https://tourism-management-server-pearl.vercel.app
+/spots/email/${params.email}`)
             },
             {
                 path: '/update/:id',
                 element: <PrivateRoute><UpdateSpots></UpdateSpots></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/spots/${params.id}`)
+                loader: ({ params }) => fetch(`https://tourism-management-server-pearl.vercel.app
+/spots/${params.id}`)
             },
             {
                 path: '/spotsCountry/:country',
                 element: <Country></Country>,
-                loader: ({ params }) => fetch(`http://localhost:5000/spotsCountry/${params.country}`)
+                loader: ({ params }) => fetch(`https://tourism-management-server-pearl.vercel.app
+/spotsCountry/${params.country}`)
             },
         ]
     }

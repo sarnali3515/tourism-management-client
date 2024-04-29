@@ -25,7 +25,7 @@ const AddSpots = () => {
         console.log(newSpot);
 
         // send data to server
-        fetch('http://localhost:5000/spots', {
+        fetch('https://tourism-management-server-pearl.vercel.app/spots', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

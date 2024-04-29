@@ -3,7 +3,7 @@ import { FaInstagram, FaLinkedin } from "react-icons/fa";
 const Footer = () => {
     return (
         <div className="p-5 lg:p-10 bg-gradient-to-l from-cyan-700 to-cyan-500 mt-10">
-            <footer className="footer p-10  text-white">
+            <footer className="footer p-10 max-w-6xl mx-auto  text-white">
                 <aside>
                     <img className="h-12" src="https://i.ibb.co/rk5WtGm/travel-3-removebg-preview.png" alt="" />
                     <h1 className="text-3xl">Travel Trails</h1>
