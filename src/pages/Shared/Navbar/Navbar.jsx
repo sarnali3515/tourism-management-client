@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import './Navbar.css'
+import { toast } from "react-toastify";
 
 const Navbar = () => {
     const { user, logOut, loading } = useContext(AuthContext);
@@ -33,7 +34,11 @@ const Navbar = () => {
 
     const handleSignOut = () => {
         logOut()
-            .then()
+            .then(
+                result => {
+                    toast.success('Logout Successful')
+                }
+            )
             .catch();
     };
 
