@@ -3,24 +3,17 @@ Travel Trails
 
 # Live Site Link: https://tourism-management-trails.web.app/
 
+# Overview
+Designed and developed a dynamic tourism website focused on promoting travel destinations in Southeast Asia. Leveraged full-stack web development skills to create an immersive user experience and showcase notable tourist spots across the region. Implemented responsive design principles to ensure seamless functionality across various devices.
+
 # Category : 
 Southeast Asia
 
 # Features
-- Responsive navbar with active routes and conditional user profile display.
-- Login page with email/password authentication, google and github login options.
-- Registration page with password strength verification and error handling.
-- Banner section featuring a slider with captivating images of tourist spots.
-- Footer with essential information and visually appealing design.
-- Tourists Spots section showcasing destinations in Southeast Asia with detailed descriptions and highlights.
-- All Tourists Spots page for viewing all added tourist spots, with sorting functionality.
-- View Details page for detailed information on a specific tourist spot, with authentication to access.
-- My List page for users to manage their added tourist spots, accessible only to authenticated users.
-- Update page for editing tourist spot information, with success message upon submission.
-- Delete functionality with confirmation prompt before removing tourist spots.
-- Loading spinner for data loading states.
-- Dark/light theme toggle for user preference.
-- Dynamic title for each page.
+- Developed a user-friendly tourism website focused on Southeast Asia, featuring famous spots.
+- User can post and manage their posted spots by updating or removing the spots information.
+- Implemented secure user authentication and profile management features using Firebase for 
+personalized experiences
 
 # Technologies Used
 - HTML
