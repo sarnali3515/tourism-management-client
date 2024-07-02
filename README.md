@@ -6,9 +6,6 @@ Travel Trails
 # Overview
 Designed and developed a dynamic tourism website focused on promoting travel destinations in Southeast Asia. Leveraged full-stack web development skills to create an immersive user experience and showcase notable tourist spots across the region. Implemented responsive design principles to ensure seamless functionality across various devices.
 
-# Category : 
-Southeast Asia
-
 # Features
 - Developed a user-friendly tourism website focused on Southeast Asia, featuring famous spots.
 - User can post and manage their posted spots by updating or removing the spots information.
