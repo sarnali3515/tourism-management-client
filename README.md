@@ -29,3 +29,14 @@ personalized experiences
 - Lottie React
 - React Simple TypeWriter
 
+# Getting Started
+## Prerequisites
+- Ensure you have Node.js, npm or yarn, and Git installed.
+
+## Installation
+- Clone the repository: git clone https://github.com/sarnali3515/tourism-management-client.git 
+- cd tourism client file
+- Install dependencies: npm install
+- Set up frontend environment variables (Firebase config): Create a .env file 
+- Run the frontend: npm run dev
+
